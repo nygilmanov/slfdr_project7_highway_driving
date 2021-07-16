@@ -19,15 +19,15 @@ The project has been built based on materials of the lesssons. The picture clear
 
 On the picture above ,  the inputs to behavior planning come from prediction model and localization model, both of which gets their inputs from the sensor fusion. 
 And the output from the behavior model goes directly into the trajectory planner, which also takes input from prediction and localization. 
-So that it can sent trajectory to the motion controller.
+So that it can send trajectory to the motion controller.
 
 ## Prediction 
 
 Predictions come from the sensor fusion data [id, x, y, vx, vy, s, d]. 
-The id is a unique identifier. The x, y values are in global map coordinates, and the vx, vy values are the velocity components, also in reference the global map.
+The id is a unique identifier. The x, y values are in global map coordinates, and the vx, vy values are the velocity components, also in reference to the global map.
 Finally s and d are the Frenet coordinates for the car. 
 
-According to these information, we can undertsand  whether
+According to this  information, we can undertsand  whether
  
 - there is car blocking the traffic ahead of ego car 
 - whether there is a car to the right of the ego car 
@@ -36,6 +36,7 @@ According to these information, we can undertsand  whether
 
 It is considered "dangerous" if the distance between ego car and other cars is less than 30 meters in front or behind of ego car. 
 The Boolean variables  of  ***too_close***, ***car_left*** and ***car_right***  are used to make correct behaviors.(line 118 to line 158 in main.cpp)
+It is implemented at [Highway Driving::correct_behaviours](./src/main.cpp#L118)
 
 ## Behavior
 
@@ -52,7 +53,7 @@ The method can make a smoother trajectory, and handle with the different frequen
 Spline fitting is used to generate trajectory from Project Q&A of Aaron Brown. 
 For making calculation easy, it is necessary to shift the car or the last point of previous path is at zero, and its angle is at zero degree.
 In the local car coordinate, the code calculates how to break up spline points so that the ego car can travel at a desired velocity (this has been taken from Q&A) 
-After finishing spline fitting, it must be rotated back to map coordinate.(line 191 to line 296 in main.cpp)
+After finishing spline fitting, it must be rotated back to map coordinate.(line 191 to line 296 in main.cpp)[Highway Driving::mapback](./src/main.cpp#L191)
 
 
 # Visualization of Result
