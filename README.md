@@ -36,7 +36,7 @@ According to this  information, we can undertsand  whether
 
 It is considered "dangerous" if the distance between ego car and other cars is less than 30 meters in front or behind of ego car. 
 The Boolean variables  of  ***too_close***, ***car_left*** and ***car_right***  are used to make correct behaviors.(line 118 to line 158 in main.cpp)
-It is implemented at [Highway Driving::correct_behaviours](./src/main.cpp#L118)
+It is implemented at [Highway Driving::correct_behaviours](./src/main.cpp#L116)
 
 ## Behavior
 
@@ -53,7 +53,8 @@ The method can make a smoother trajectory, and handle with the different frequen
 Spline fitting is used to generate trajectory from Project Q&A of Aaron Brown. 
 For making calculation easy, it is necessary to shift the car or the last point of previous path is at zero, and its angle is at zero degree.
 In the local car coordinate, the code calculates how to break up spline points so that the ego car can travel at a desired velocity (this has been taken from Q&A) 
-After finishing spline fitting, it must be rotated back to map coordinate.(line 191 to line 296 in main.cpp)[Highway Driving::mapback](./src/main.cpp#L191)
+After finishing spline fitting, it must be rotated back to map coordinate.(line 191 to line 296 in main.cpp)  
+[Highway Driving::mapback](./src/main.cpp#L197)
 
 
 # Visualization of Result
