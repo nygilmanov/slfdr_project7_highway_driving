@@ -65,4 +65,4 @@ After finishing spline fitting, it must be rotated back to map coordinate.(line 
 # Running the Program
 
 1. Download the simulator and open it. In the main menu screen select : Path Planning.
-2. Instructions on simulator set up are locater here (./SIMULATOR.mb)
+2. Instructions on simulator set up are locater here [env setup](./SIMULATOR.md)
